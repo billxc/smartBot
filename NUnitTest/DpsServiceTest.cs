@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using smartBot.Service;
+using System.Threading.Tasks;
 
 namespace Tests
 {
@@ -11,9 +12,10 @@ namespace Tests
         }
 
         [Test]
-        public void TestLoadClassData()
+        public async Task TestLoadClassDataAsync()
         {
             var dpsService = DpsService.Instance;
+            await dpsService.LoadClassRemotely();
             Assert.AreEqual(3, dpsService.GetClassIdByAlias("ºÚÄ§"));
             Assert.AreEqual(3, dpsService.GetClassIdByAlias("ºÚÄ§·¨Ê¦"));
             Assert.AreEqual(3, dpsService.GetClassIdByAlias("BLM"));
