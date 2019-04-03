@@ -1,7 +1,7 @@
 ﻿using System;
 using Fleck;
 using NLog;
-using smartBot.core;
+using smartBot.manager;
 
 namespace smartBot
 {

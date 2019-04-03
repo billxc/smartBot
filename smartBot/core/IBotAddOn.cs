@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using smartBot.core;
+using smartBot.manager;
 using smartBot.model;
 
-namespace smartBot.Addon
+namespace smartBot.manager
 {
     public interface IBotAddOn
     {

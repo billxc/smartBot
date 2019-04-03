@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using Fleck;
 using Newtonsoft.Json;
 using NLog;
+using smartBot.manager.simpleaddon;
 using smartBot.model;
 
-namespace smartBot.core
+namespace smartBot.manager
 {
     class BotManager
     {
@@ -31,9 +32,26 @@ namespace smartBot.core
             {
                 Logger.Info($"Register qq {qq}");
                 BotMap[qq.Value] = new Bot(qq.Value, socket);
+                LoadAddOns(BotMap[qq.Value]);
                 //TODO init qq, load config
             }
         }
+
+        private static void LoadAddOns(Bot bot)
+        {
+            Load(bot, Help.Instance);
+            Load(bot, Nuannuan.Instance);
+            Load(bot, new Test());
+            Load(bot, new Weather());
+        }
+
+        private static void Load(Bot bot, IBotAddOn addon)
+        {
+            bot.AddOnList.Add(addon);
+            Logger.Debug($"{bot.QQ} load {addon.GetType()}");
+        }
+
+
 
         public void UnRegister(IWebSocketConnection socket)
         {

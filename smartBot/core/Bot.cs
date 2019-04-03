@@ -5,10 +5,11 @@ using System.Text;
 using Fleck;
 using Newtonsoft.Json;
 using NLog;
-using smartBot.Addon;
+using smartBot.manager;
+using smartBot.manager.simpleaddon;
 using smartBot.model;
 
-namespace smartBot.core
+namespace smartBot.manager
 {
     public class Bot
     {
@@ -23,18 +24,9 @@ namespace smartBot.core
             QQ = qq;
             Socket = socket;
             AddOnList = new List<IBotAddOn>();
-            LoadAddons();
         }
 
-        public void LoadAddons()
-        {
-            AddOnList.Add(Nuannuan.Instance);
-            Logger.Debug("load nuannuan");
-
-            AddOnList.Add(Nuannuan.Instance);
-            //load core addon
-        }
-
+     
         public void AddOnAction(CoolqEvent coolqEvent)
         {
             foreach(var addon in AddOnList)

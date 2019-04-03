@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 
-namespace smartBot.Addon
+namespace smartBot.manager
 {
     class Nuannuan : SimpleCommandAddOn
     {
