@@ -1,3 +1,4 @@
-smartBot/bin/**
-smartBot/obj/**
-smartBot/objd/**
+smartBot/bin/
+smartBot/obj/
+smartBot/objd/
+.vs/
