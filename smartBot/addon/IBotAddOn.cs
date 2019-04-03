@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using smartBot.core;
+using smartBot.model;
 
-namespace smartBot.addon
+namespace smartBot.Addon
 {
     public interface IBotAddOn
     {
-        bool ShouldAction(string message);
-        void Action(string message);
-
+        void Action(Bot bot, CoolqEvent message);
+        string Info();
     }
 }

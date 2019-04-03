@@ -1,7 +1,7 @@
 ﻿namespace smartBot.coolq
 {
-    class CoolQUtil
+    public class CoolQUtil
     {
-
+        
     }
 }

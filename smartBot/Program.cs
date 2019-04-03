@@ -1,5 +1,7 @@
 ﻿using System;
 using Fleck;
+using NLog;
+using smartBot.core;
 
 namespace smartBot
 {
@@ -7,14 +9,15 @@ namespace smartBot
     {
         static void Main(string[] args)
         {
+            LogManager.LoadConfiguration("Nlog.config");
             var server = new WebSocketServer("ws://0.0.0.0:8181");
-            var bot = new Bot();
+            var bot = new BotManager();
             server.RestartAfterListenError = true;
             server.Start(socket =>
             {
-                socket.OnOpen = () => Console.WriteLine("Open!");
-                socket.OnClose = () => Console.WriteLine("Close!");
-                socket.OnMessage = message => bot.OnMessage(socket,message);
+                socket.OnOpen = () => bot.Register(socket);
+                socket.OnClose = () => bot.UnRegister(socket);
+                socket.OnMessage = message => bot.Action(socket,message);
             });
             while (true)
             {
