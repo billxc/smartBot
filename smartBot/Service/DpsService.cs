@@ -44,7 +44,7 @@ namespace smartBot.Service
         {
             //load class
             var newClassAliasMap = new Dictionary<string, int>();
-            var lines = System.IO.File.ReadAllLines(@"C:\code\smartBot\smartBot\bin\Debug\netcoreapp2.1\data\class.csv");
+            var lines = System.IO.File.ReadAllLines(@"data\class.csv");
             Console.WriteLine(lines.Count());
             var classes = lines.Skip(1).Select(line => new FFXIVClass(line));
             foreach (var c in classes)
