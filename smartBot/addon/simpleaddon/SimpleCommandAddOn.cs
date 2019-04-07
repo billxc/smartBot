@@ -7,7 +7,7 @@ using smartBot.model;
 
 namespace smartBot.manager
 {
-    abstract class SimpleCommandAddOn : IBotAddOn
+    public abstract class SimpleCommandAddOn : IBotAddOn
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
