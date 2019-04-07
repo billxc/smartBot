@@ -2,9 +2,9 @@ using NUnit.Framework;
 using smartBot.Service;
 using System.Threading.Tasks;
 
-namespace Tests
+namespace smartBotTest
 {
-    public class Tests
+    public class DepServiceTest
     {
         [SetUp]
         public void Setup()
